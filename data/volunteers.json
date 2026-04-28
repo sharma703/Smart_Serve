@@ -1,0 +1,240 @@
+[
+  {
+    "id": "6870fac8-41f6-4ef6-ae6f-dbb0c34743b4",
+    "name": "Arjun Kumar",
+    "email": "arjun.kumar@example.com",
+    "phone": "+91 9876543210",
+    "location": "North District, Bangalore",
+    "age": "26-35",
+    "skill": "Medical",
+    "additionalSkills": [
+      "First Aid",
+      "Counseling"
+    ],
+    "experience": "4",
+    "bio": "Healthcare professional with 4 years of field experience.",
+    "availability": {
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri"
+      ],
+      "timeSlot": "Anytime"
+    },
+    "hoursPerWeek": "20",
+    "emergency": true,
+    "available": true,
+    "assignmentCount": 24,
+    "status": "Active",
+    "createdAt": "2026-03-22T11:19:12.866Z"
+  },
+  {
+    "id": "be7b22be-372c-4fc4-b3eb-bca90f7f913d",
+    "name": "Sonia Patel",
+    "email": "sonia.patel@example.com",
+    "phone": "+91 9123456789",
+    "location": "West Colony, Delhi",
+    "age": "26-35",
+    "skill": "Teaching",
+    "additionalSkills": [
+      "Language Support",
+      "Admin"
+    ],
+    "experience": "3",
+    "bio": "Primary school teacher passionate about rural education.",
+    "availability": {
+      "days": [
+        "Mon",
+        "Wed",
+        "Fri",
+        "Sat"
+      ],
+      "timeSlot": "Morning"
+    },
+    "hoursPerWeek": "15",
+    "emergency": false,
+    "available": true,
+    "assignmentCount": 19,
+    "status": "Active",
+    "createdAt": "2026-03-27T11:19:12.868Z"
+  },
+  {
+    "id": "aa7012dc-cdc5-4bd0-997f-5aa8b4ead145",
+    "name": "Rahul Nair",
+    "email": "rahul.nair@example.com",
+    "phone": "+91 9345678901",
+    "location": "East Block, Mumbai",
+    "age": "18-25",
+    "skill": "Driving",
+    "additionalSkills": [
+      "Heavy Lifting",
+      "Logistics"
+    ],
+    "experience": "2",
+    "bio": "Licensed driver with a large vehicle. Available weekends.",
+    "availability": {
+      "days": [
+        "Sat",
+        "Sun"
+      ],
+      "timeSlot": "Anytime"
+    },
+    "hoursPerWeek": "12",
+    "emergency": true,
+    "available": true,
+    "assignmentCount": 17,
+    "status": "Active",
+    "createdAt": "2026-04-01T11:19:12.868Z"
+  },
+  {
+    "id": "86907047-3f41-4dee-b275-33edc135b634",
+    "name": "Meera Iyer",
+    "email": "meera.iyer@example.com",
+    "phone": "+91 9567890123",
+    "location": "South Market, Chennai",
+    "age": "36-45",
+    "skill": "Cooking",
+    "additionalSkills": [
+      "Cooking",
+      "Admin"
+    ],
+    "experience": "6",
+    "bio": "Runs a community kitchen. Experienced in bulk food distribution.",
+    "availability": {
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri"
+      ],
+      "timeSlot": "Morning"
+    },
+    "hoursPerWeek": "25",
+    "emergency": false,
+    "available": true,
+    "assignmentCount": 15,
+    "status": "Active",
+    "createdAt": "2026-04-03T11:19:12.868Z"
+  },
+  {
+    "id": "f3ba76c3-804a-471b-a187-69ca2766299f",
+    "name": "Karan Singh",
+    "email": "karan.singh@example.com",
+    "phone": "+91 9678901234",
+    "location": "Green Valley, Hyderabad",
+    "age": "26-35",
+    "skill": "Medical",
+    "additionalSkills": [
+      "First Aid",
+      "IT Support"
+    ],
+    "experience": "5",
+    "bio": "Paramedic with emergency response training.",
+    "availability": {
+      "days": [
+        "Mon",
+        "Tue",
+        "Thu",
+        "Sat"
+      ],
+      "timeSlot": "Afternoon"
+    },
+    "hoursPerWeek": "18",
+    "emergency": true,
+    "available": true,
+    "assignmentCount": 12,
+    "status": "Active",
+    "createdAt": "2026-04-06T11:19:12.869Z"
+  },
+  {
+    "id": "d09330ac-c31c-4101-a1b4-6a4cb58e8667",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@example.com",
+    "phone": "+91 9789012345",
+    "location": "River Road, Pune",
+    "age": "18-25",
+    "skill": "Driving",
+    "additionalSkills": [
+      "Driving",
+      "Language Support"
+    ],
+    "experience": "1",
+    "bio": "College student available on evenings and weekends.",
+    "availability": {
+      "days": [
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "timeSlot": "Evening"
+    },
+    "hoursPerWeek": "10",
+    "emergency": false,
+    "available": true,
+    "assignmentCount": 8,
+    "status": "Active",
+    "createdAt": "2026-04-09T11:19:12.869Z"
+  },
+  {
+    "id": "c9da35e1-cdc5-4e44-8938-93680e7851aa",
+    "name": "Deepa Rao",
+    "email": "deepa.rao@example.com",
+    "phone": "+91 9890123456",
+    "location": "Lake View, Bangalore",
+    "age": "36-45",
+    "skill": "Teaching",
+    "additionalSkills": [
+      "Counseling",
+      "Language Support"
+    ],
+    "experience": "8",
+    "bio": "Retired school principal. Dedicated to adult literacy programs.",
+    "availability": {
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri"
+      ],
+      "timeSlot": "Morning"
+    },
+    "hoursPerWeek": "30",
+    "emergency": false,
+    "available": true,
+    "assignmentCount": 6,
+    "status": "Active",
+    "createdAt": "2026-04-11T11:19:12.869Z"
+  },
+  {
+    "id": "5a7579da-cfe4-4f2b-9f53-5e062d40c566",
+    "name": "Ravi Menon",
+    "email": "ravi.menon@example.com",
+    "phone": "+91 9901234567",
+    "location": "Hill Side, Kochi",
+    "age": "36-45",
+    "skill": "Construction",
+    "additionalSkills": [
+      "Heavy Lifting",
+      "Driving"
+    ],
+    "experience": "10",
+    "bio": "Civil engineer volunteering for shelter and infrastructure aid.",
+    "availability": {
+      "days": [
+        "Sat",
+        "Sun"
+      ],
+      "timeSlot": "Anytime"
+    },
+    "hoursPerWeek": "16",
+    "emergency": true,
+    "available": true,
+    "assignmentCount": 5,
+    "status": "Active",
+    "createdAt": "2026-04-13T11:19:12.869Z"
+  }
+]
