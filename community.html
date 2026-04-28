@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Data – SmartServe</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./forms.css" />
+  </head>
+  <body>
+    <div class="bg-mesh"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-logo">
+        <div class="logo-icon">⚡</div>
+        SmartServe
+      </div>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./community.html" class="active">Community Data</a></li>
+        <li><a href="./volunteer.html">Volunteers</a></li>
+        <li><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="./dashboard.html" class="nav-cta">View Dashboard →</a></li>
+      </ul>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="./index.html">Home</a>
+      <a href="./community.html" class="active">Community Data</a>
+      <a href="./volunteer.html">Volunteers</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </div>
+
+    <div class="content">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="label">📋 Data Collection</div>
+        <h1>Report Community Needs</h1>
+        <p>
+          Log problems facing your community so volunteers and resources can be
+          allocated where they're needed most.
+        </p>
+      </div>
+
+      <!-- Main Layout -->
+      <div class="section section-md form-page-layout">
+        <!-- Form Card -->
+        <div class="form-card card reveal">
+          <div class="form-card-header">
+            <h2>Community Problem Report</h2>
+            <p>Fill in the details below. All fields are required.</p>
+          </div>
+
+          <form id="communityForm" novalidate>
+            <!-- Area Name -->
+            <div class="form-group">
+              <label class="form-label" for="areaName">Area Name</label>
+              <input
+                type="text"
+                id="areaName"
+                class="form-control"
+                placeholder="e.g., North District, East Block"
+                autocomplete="off"
+              />
+              <span class="form-error">Please enter an area name.</span>
+            </div>
+
+            <!-- Problem Type -->
+            <div class="form-group">
+              <label class="form-label" for="problemType">Problem Type</label>
+              <select id="problemType" class="form-control">
+                <option value="" disabled selected>
+                  Select problem category…
+                </option>
+                <option value="Food">🥘 Food & Nutrition</option>
+                <option value="Medical">🏥 Medical & Health</option>
+                <option value="Education">📚 Education & Literacy</option>
+                <option value="Logistics">🚛 Logistics & Supply</option>
+                <option value="Shelter">🏠 Shelter & Housing</option>
+                <option value="Water">💧 Water & Sanitation</option>
+              </select>
+              <span class="form-error">Please select a problem type.</span>
+            </div>
+
+            <!-- Severity -->
+            <div class="form-group">
+              <label class="form-label">Severity Level</label>
+              <div class="radio-group">
+                <div class="radio-option low">
+                  <input
+                    type="radio"
+                    name="severity"
+                    id="sev-low"
+                    value="Low"
+                  />
+                  <label for="sev-low">🟢 Low</label>
+                </div>
+                <div class="radio-option medium">
+                  <input
+                    type="radio"
+                    name="severity"
+                    id="sev-medium"
+                    value="Medium"
+                  />
+                  <label for="sev-medium">🟡 Medium</label>
+                </div>
+                <div class="radio-option high">
+                  <input
+                    type="radio"
+                    name="severity"
+                    id="sev-high"
+                    value="High"
+                  />
+                  <label for="sev-high">🔴 High</label>
+                </div>
+              </div>
+              <span class="form-error" id="severityError" style="display: none"
+                >Please select a severity level.</span
+              >
+            </div>
+
+            <!-- Location -->
+            <div class="form-group">
+              <label class="form-label" for="location">Location</label>
+              <input
+                type="text"
+                id="location"
+                class="form-control"
+                placeholder="e.g., 12.9716° N, 77.5946° E or 'Near Central School'"
+              />
+              <span class="form-error">Please enter a location.</span>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="map-placeholder">
+              <div class="map-inner">
+                <div class="map-grid"></div>
+                <div class="map-pin">📍</div>
+                <div class="map-label">Click to set location on map</div>
+              </div>
+            </div>
+
+            <!-- Affected Population -->
+            <div class="form-group">
+              <label class="form-label" for="population"
+                >Estimated Affected Population</label
+              >
+              <input
+                type="number"
+                id="population"
+                class="form-control"
+                placeholder="e.g., 500"
+                min="1"
+              />
+              <span class="form-hint"
+                >Approximate number of people affected.</span
+              >
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+              <label class="form-label" for="description"
+                >Problem Description</label
+              >
+              <textarea
+                id="description"
+                class="form-control"
+                rows="4"
+                placeholder="Describe the situation in detail — what's happening, since when, and what kind of help is needed…"
+              ></textarea>
+              <div class="char-count">
+                <span id="descCount">0</span> / 500 characters
+              </div>
+            </div>
+
+            <!-- Urgency Toggle -->
+            <div class="form-group">
+              <div class="urgency-toggle">
+                <div>
+                  <label
+                    class="form-label"
+                    style="
+                      margin-bottom: 0;
+                      text-transform: none;
+                      font-size: 0.95rem;
+                    "
+                    >🚨 Mark as Urgent</label
+                  >
+                  <p style="font-size: 0.82rem; color: var(--muted); margin: 0">
+                    Triggers immediate volunteer alert
+                  </p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="urgentFlag" />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-full btn-lg"
+              id="submitBtn"
+            >
+              <span class="btn-text">📋 Submit Report</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Side Info Panel -->
+        <div class="form-sidebar">
+          <!-- Submission Tips -->
+          <div class="card tip-card reveal">
+            <h3 style="color: var(--white); margin-bottom: 1rem">
+              💡 Submission Tips
+            </h3>
+            <ul class="tips-list">
+              <li>Be as specific as possible with location details</li>
+              <li>
+                Select the severity level honestly — it affects volunteer
+                priority
+              </li>
+              <li>
+                Include an estimated population count for better resource
+                planning
+              </li>
+              <li>
+                Mark as Urgent only if immediate action is needed within 24
+                hours
+              </li>
+            </ul>
+          </div>
+
+          <!-- Recent Reports -->
+          <div class="card reveal" style="margin-top: 1.25rem">
+            <h3 style="color: var(--white); margin-bottom: 1.25rem">
+              📊 Recent Reports
+            </h3>
+            <div class="recent-reports">
+              <div class="recent-item">
+                <div
+                  class="recent-icon"
+                  style="
+                    background: rgba(255, 84, 112, 0.1);
+                    color: var(--danger);
+                  "
+                >
+                  🥘
+                </div>
+                <div>
+                  <p class="recent-area">South Market Area</p>
+                  <p class="recent-meta">Food · High Severity · 2h ago</p>
+                </div>
+                <span class="badge badge-danger">Urgent</span>
+              </div>
+              <div class="recent-item">
+                <div
+                  class="recent-icon"
+                  style="
+                    background: rgba(61, 111, 255, 0.1);
+                    color: var(--blue-light);
+                  "
+                >
+                  🏥
+                </div>
+                <div>
+                  <p class="recent-area">West Colony</p>
+                  <p class="recent-meta">Medical · Medium · 5h ago</p>
+                </div>
+                <span class="badge badge-warning">Active</span>
+              </div>
+              <div class="recent-item">
+                <div
+                  class="recent-icon"
+                  style="
+                    background: rgba(29, 233, 198, 0.1);
+                    color: var(--teal);
+                  "
+                >
+                  📚
+                </div>
+                <div>
+                  <p class="recent-area">Old Town</p>
+                  <p class="recent-meta">Education · Low · 1d ago</p>
+                </div>
+                <span class="badge badge-success">Assigned</span>
+              </div>
+            </div>
+            <a
+              href="./dashboard.html"
+              class="btn btn-secondary btn-sm"
+              style="width: 100%; justify-content: center; margin-top: 1rem"
+              >View All Reports</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Success Modal -->
+      <div class="modal-overlay" id="successModal">
+        <div class="modal-card">
+          <div class="modal-icon">✅</div>
+          <h2>Report Submitted!</h2>
+          <p>
+            Your community data has been logged. Our system will analyze the
+            report and match suitable volunteers.
+          </p>
+          <div
+            style="
+              background: rgba(61, 111, 255, 0.08);
+              border: 1px solid rgba(61, 111, 255, 0.2);
+              border-radius: var(--radius-md);
+              padding: 1rem;
+              margin: 1rem 0;
+              font-size: 0.85rem;
+            "
+          >
+            <strong style="color: var(--white)">Report ID:</strong>
+            <span
+              id="reportId"
+              style="color: var(--blue-light); font-family: monospace"
+              >#SSR-0000</span
+            >
+          </div>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap">
+            <button
+              class="btn btn-primary"
+              onclick="closeModal('successModal')"
+            >
+              Submit Another
+            </button>
+            <a href="./dashboard.html" class="btn btn-secondary"
+              >View Dashboard</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 <span>SmartServe</span> · Data-Driven Volunteer Coordination</p>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="./main.js"></script>
+    <script src="./community.js"></script>
+  </body>
+</html>

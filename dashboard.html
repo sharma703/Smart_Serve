@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – SmartServe</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+  <body>
+    <div class="bg-mesh"></div>
+
+    <nav class="nav">
+      <div class="nav-logo">
+        <div class="logo-icon">⚡</div>
+        SmartServe
+      </div>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./community.html">Community Data</a></li>
+        <li><a href="./volunteer.html">Volunteers</a></li>
+        <li><a href="./dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="./community.html" class="nav-cta">Add Data →</a></li>
+      </ul>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="./index.html">Home</a>
+      <a href="./community.html">Community Data</a>
+      <a href="./volunteer.html">Volunteers</a>
+      <a href="./dashboard.html" class="active">Dashboard</a>
+    </div>
+
+    <div class="content">
+      <div class="dashboard-layout">
+        <!-- Dashboard Header -->
+        <div class="dash-header reveal">
+          <div>
+            <div
+              class="label"
+              style="display: inline-block; margin-bottom: 0.5rem"
+            >
+              📊 Control Center
+            </div>
+            <h1 style="font-size: clamp(1.6rem, 3vw, 2.2rem)">
+              SmartServe Dashboard
+            </h1>
+            <p>
+              Real-time overview of community needs and volunteer deployment.
+            </p>
+          </div>
+          <div class="dash-header-actions">
+            <div class="live-badge">
+              <span class="live-dot"></span>
+              Live
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="refreshData()">
+              🔄 Refresh
+            </button>
+            <a href="./community.html" class="btn btn-primary btn-sm"
+              >+ Add Report</a
+            >
+          </div>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="grid-4 reveal">
+          <div class="stat-card blue">
+            <div class="stat-icon blue">🏘️</div>
+            <div class="stat-value" id="statAreas">83</div>
+            <div class="stat-label">Total Areas Tracked</div>
+            <div class="stat-change up">↑ +5 this week</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-icon purple">🙋</div>
+            <div class="stat-value" id="statVols">247</div>
+            <div class="stat-label">Active Volunteers</div>
+            <div class="stat-change up">↑ +12 today</div>
+          </div>
+          <div class="stat-card danger">
+            <div class="stat-icon danger">🚨</div>
+            <div class="stat-value" id="statUrgent">18</div>
+            <div class="stat-label">Urgent Needs</div>
+            <div class="stat-change down">↓ -3 from yesterday</div>
+          </div>
+          <div class="stat-card teal">
+            <div class="stat-icon teal">✅</div>
+            <div class="stat-value" id="statAssigned">1,204</div>
+            <div class="stat-label">Tasks Completed</div>
+            <div class="stat-change up">↑ +47 today</div>
+          </div>
+        </div>
+
+        <!-- Middle Row: Charts + Assignment -->
+        <div class="dash-mid-row reveal">
+          <!-- Category Breakdown -->
+          <div class="card category-card">
+            <div class="card-top-row">
+              <h3 style="color: var(--white)">📂 Needs by Category</h3>
+              <span class="badge badge-muted">This month</span>
+            </div>
+            <div class="category-bars">
+              <div class="cat-row">
+                <div class="cat-meta">
+                  <span class="cat-icon">🥘</span>
+                  <span class="cat-name">Food</span>
+                  <span class="cat-count">312</span>
+                </div>
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar blue"
+                    style="width: 78%"
+                    data-target="78"
+                  ></div>
+                </div>
+                <span class="cat-pct">78%</span>
+              </div>
+              <div class="cat-row">
+                <div class="cat-meta">
+                  <span class="cat-icon">🏥</span>
+                  <span class="cat-name">Medical</span>
+                  <span class="cat-count">248</span>
+                </div>
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar purple"
+                    style="width: 62%"
+                    data-target="62"
+                  ></div>
+                </div>
+                <span class="cat-pct">62%</span>
+              </div>
+              <div class="cat-row">
+                <div class="cat-meta">
+                  <span class="cat-icon">📚</span>
+                  <span class="cat-name">Education</span>
+                  <span class="cat-count">178</span>
+                </div>
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar teal"
+                    style="width: 45%"
+                    data-target="45"
+                  ></div>
+                </div>
+                <span class="cat-pct">45%</span>
+              </div>
+              <div class="cat-row">
+                <div class="cat-meta">
+                  <span class="cat-icon">🚛</span>
+                  <span class="cat-name">Logistics</span>
+                  <span class="cat-count">356</span>
+                </div>
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar danger"
+                    style="width: 89%"
+                    data-target="89"
+                  ></div>
+                </div>
+                <span class="cat-pct">89%</span>
+              </div>
+              <div class="cat-row">
+                <div class="cat-meta">
+                  <span class="cat-icon">🏠</span>
+                  <span class="cat-name">Shelter</span>
+                  <span class="cat-count">95</span>
+                </div>
+                <div class="progress-bar-wrap">
+                  <div
+                    class="progress-bar blue"
+                    style="width: 24%"
+                    data-target="24"
+                  ></div>
+                </div>
+                <span class="cat-pct">24%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Auto-Assignment Panel -->
+          <div class="card assignment-card">
+            <div class="card-top-row">
+              <h3 style="color: var(--white)">⚡ Smart Assignment</h3>
+              <span class="badge badge-blue">AI Powered</span>
+            </div>
+            <p style="font-size: 0.88rem; margin-bottom: 1.5rem">
+              Click the button below to automatically match volunteers with
+              community needs based on skills, proximity, and urgency.
+            </p>
+
+            <button
+              class="btn btn-primary btn-full assign-btn"
+              id="assignBtn"
+              onclick="runAutoAssign()"
+            >
+              ⚡ Auto-Assign Volunteers
+            </button>
+
+            <div class="assign-results" id="assignResults">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Table: Tasks & Volunteers -->
+        <div class="table-wrapper reveal">
+          <div class="table-header">
+            <h3>📋 Active Tasks & Assignments</h3>
+            <div
+              style="
+                display: flex;
+                gap: 0.75rem;
+                align-items: center;
+                flex-wrap: wrap;
+              "
+            >
+              <div class="search-box">
+                <span>🔍</span>
+                <input
+                  type="text"
+                  placeholder="Search tasks…"
+                  id="tableSearch"
+                  oninput="filterTable(this.value)"
+                />
+              </div>
+              <select
+                class="filter-select"
+                id="filterStatus"
+                onchange="
+                  filterTable(document.getElementById('tableSearch').value)
+                "
+              >
+                <option value="">All Status</option>
+                <option value="Assigned">Assigned</option>
+                <option value="Pending">Pending</option>
+                <option value="Urgent">Urgent</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+          </div>
+          <div style="overflow-x: auto">
+            <table id="tasksTable">
+              <thead>
+                <tr>
+                  <th>Task ID</th>
+                  <th>Area</th>
+                  <th>Problem Type</th>
+                  <th>Severity</th>
+                  <th>Assigned Volunteer</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tasksBody">
+                <!-- Filled by JS -->
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <span id="tableCount">Showing 10 of 10 tasks</span>
+            <div style="display: flex; gap: 0.5rem">
+              <button class="btn btn-secondary btn-sm" disabled>← Prev</button>
+              <button class="btn btn-secondary btn-sm" disabled>Next →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row: Volunteers + Urgent -->
+        <div class="dash-bottom-row reveal">
+          <!-- Top Volunteers -->
+          <div class="card">
+            <div class="card-top-row" style="margin-bottom: 1.25rem">
+              <h3 style="color: var(--white)">🏆 Top Volunteers</h3>
+              <a href="./volunteer.html" class="btn btn-outline btn-sm"
+                >+ Add Volunteer</a
+              >
+            </div>
+            <div class="vol-list" id="volList">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+
+          <!-- Urgent Needs -->
+          <div class="card">
+            <div class="card-top-row" style="margin-bottom: 1.25rem">
+              <h3 style="color: var(--white)">🚨 Urgent Needs</h3>
+              <span class="badge badge-danger">18 active</span>
+            </div>
+            <div class="urgent-list" id="urgentList">
+              <!-- Filled by JS -->
+            </div>
+            <a
+              href="./community.html"
+              class="btn btn-secondary btn-sm btn-full"
+              style="margin-top: 1rem"
+              >View All Reports</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 <span>SmartServe</span> · Data-Driven Volunteer Coordination</p>
+    </footer>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="./main.js"></script>
+    <script src="./dashboard.js"></script>
+  </body>
+</html>
